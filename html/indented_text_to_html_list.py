@@ -71,6 +71,8 @@ class Node:
 def lines_depth_calculator(lines):
     last_level = 0
     for line in lines:
+        if not line.strip():
+            continue
         indent_spaces = indent_spaces_re.match(line)
         level = 0 if indent_spaces is None else int(len(indent_spaces.group(0))/4)
 
